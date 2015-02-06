@@ -21,7 +21,7 @@ function tree(filenames, mapper, callback) {
   }, function(err, object) {
     if (err) return callback(err)
 
-    object = flat.unflatten(object, { delimiter: '/' })
+    object = flat.unflatten(object, { delimiter: path.sep })
 
     callback(null, clean(reformat(object, 'name')))
   })
