@@ -28,7 +28,7 @@ function tree(filenames, mapper, callback) {
 }
 
 function reformat(object, namekey) {
-  if (typeof object !== 'object') return object
+  if (typeof object !== 'object' || object === null) return object
   if (object.__deepest_node__) return object
 
   var entries = []
@@ -51,7 +51,7 @@ function reformat(object, namekey) {
 }
 
 function clean(object) {
-  if (typeof object !== 'object') return object
+  if (typeof object !== 'object' || object === null) return object
   delete object.__deepest_node__
   for (var key in object) {
     clean(object[key])
